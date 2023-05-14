@@ -188,8 +188,14 @@ class _InputPageState extends State<InputPage> {
             child: Text('CALCULATE',
             style: kLargeButtonStyle,),
             onPressed: (){
+              CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+
               Navigator.push
-              (context, MaterialPageRoute(builder: (context) => ResultsPage()));
+              (context, MaterialPageRoute(builder: (context) => ResultsPage(
+                  bmiResult: calc.calculateBMI(),
+                  resultText: calc.getResult(),
+                interpretation: calc.getInterpretation(),
+              )));
             },
             fillColor: Color(0xFFEB1555),
           ),
