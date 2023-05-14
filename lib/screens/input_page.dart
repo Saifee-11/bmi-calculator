@@ -6,6 +6,7 @@ import '../components/round_icon-button.dart';
 import 'package:bmi_calculator_flutter/components/reusable_card.dart';
 import 'package:bmi_calculator_flutter/components/bottom_button.dart';
 import 'package:bmi_calculator_flutter/constants.dart';
+import 'package:bmi_calculator_flutter/calculator_brain.dart';
 
 enum Gender{
   male,
@@ -183,11 +184,14 @@ class _InputPageState extends State<InputPage> {
                 ),),)
             ],
           )),
-          BottomButton(
-            buttonTitle: Text('CALCULATE'),
-            onTap: (){Navigator.push
+          RawMaterialButton(
+            child: Text('CALCULATE',
+            style: kLargeButtonStyle,),
+            onPressed: (){
+              Navigator.push
               (context, MaterialPageRoute(builder: (context) => ResultsPage()));
             },
+            fillColor: Color(0xFFEB1555),
           ),
         ],
       )
